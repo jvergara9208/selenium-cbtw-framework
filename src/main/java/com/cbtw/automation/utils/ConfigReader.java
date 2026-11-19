@@ -19,7 +19,7 @@ public class ConfigReader {
     }
 
     public static String get(String key) {
-        // Prioriza parámetros pasados por CLI (-Dkey=value) sobre el archivo config.properties
+
         String systemProp = System.getProperty(key);
         return (systemProp != null && !systemProp.isBlank()) ? systemProp : properties.getProperty(key);
     }
