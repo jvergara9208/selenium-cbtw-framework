@@ -12,16 +12,15 @@
         <maven.compiler.source>27</maven.compiler.source>
         <maven.compiler.target>27</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <groups>Test</groups>
+        <groups></groups>
     </properties>
 
     <dependencies>
-        <!-- Selenium WebDriver -->
+        <!-- Selenium WebDriver (compile scope para src/main/java) -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.53.0</version>
-            <scope>test</scope>
         </dependency>
 
         <!-- Override Guava transitive dependency to fix CVE-2026-118042 -->
@@ -31,12 +30,18 @@
             <version>33.8.0-jre</version>
         </dependency>
 
-        <!-- JUnit 5 -->
+        <!-- REST Assured (compile scope para BookingClient en src/main/java) -->
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.11.3</version>
-            <scope>test</scope>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>6.3.0</version>
+        </dependency>
+
+        <!-- Jackson Databind para serializar Java Records a JSON -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.18.2</version>
         </dependency>
 
         <!-- DataFaker para Data Factory -->
@@ -45,17 +50,13 @@
             <artifactId>datafaker</artifactId>
             <version>2.4.1</version>
         </dependency>
+
+        <!-- JUnit 5 -->
         <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-api</artifactId>
-            <version>4.53.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-support</artifactId>
-            <version>4.53.0</version>
-            <scope>compile</scope>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.11.3</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

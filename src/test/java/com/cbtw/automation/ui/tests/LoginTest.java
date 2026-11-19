@@ -1,9 +1,9 @@
-package com.cbtw.automation.tests;
+package com.cbtw.automation.ui.tests;
 
-import com.cbtw.automation.factories.UserFactory;
-import com.cbtw.automation.hooks.BaseTest;
-import com.cbtw.automation.pages.InventoryPage;
-import com.cbtw.automation.pages.LoginPage;
+import com.cbtw.automation.ui.factories.UserFactory;
+import com.cbtw.automation.ui.hooks.BaseTest;
+import com.cbtw.automation.ui.pages.InventoryPage;
+import com.cbtw.automation.ui.pages.LoginPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;

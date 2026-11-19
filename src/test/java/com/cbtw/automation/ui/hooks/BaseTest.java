@@ -1,4 +1,4 @@
-package com.cbtw.automation.hooks;
+package com.cbtw.automation.ui.hooks;
 
 import com.cbtw.automation.utils.ConfigReader;
 import org.junit.jupiter.api.AfterEach;

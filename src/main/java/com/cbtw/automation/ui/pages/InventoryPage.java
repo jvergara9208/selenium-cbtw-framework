@@ -1,6 +1,6 @@
-package com.cbtw.automation.pages;
+package com.cbtw.automation.ui.pages;
 
-import com.cbtw.automation.base.BasePage;
+import com.cbtw.automation.ui.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

@@ -1,4 +1,4 @@
-package com.cbtw.automation.factories;
+package com.cbtw.automation.ui.factories;
 
 import net.datafaker.Faker;
 

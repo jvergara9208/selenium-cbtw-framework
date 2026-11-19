@@ -1,4 +1,4 @@
-package com.cbtw.automation.base;
+package com.cbtw.automation.ui.base;
 
 import com.cbtw.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
