@@ -2,14 +2,17 @@ package com.cbtw.automation.tests;
 
 import com.cbtw.automation.factories.UserFactory;
 import com.cbtw.automation.hooks.BaseTest;
+import com.cbtw.automation.pages.InventoryPage;
 import com.cbtw.automation.pages.LoginPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Tag("E2E")
 public class LoginTest extends BaseTest {
     private LoginPage loginPage;
 
@@ -19,19 +22,26 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Successful login with valid standard user")
+    @Tag("Smoke")
+    @Tag("Test")
+    @DisplayName("Successful login redirects to Products inventory page")
     public void testSuccessfulLogin() {
         var user = UserFactory.validStandardUser();
-        loginPage.login(user.username(), user.password());
-        assertEquals("Products", loginPage.getPageTitle(), "User should land on Products page");
+        InventoryPage inventoryPage = loginPage.loginAs(user.username(), user.password());
+
+        assertTrue(inventoryPage.isLoaded(), "Inventory page should be loaded after login");
+        assertEquals("Products", inventoryPage.getPageTitle());
     }
 
     @Test
-    @DisplayName("Failed login with invalid credentials shows error banner")
+    @Tag("Regression")
+    @Tag("Test")
+    @DisplayName("Failed login with invalid credentials displays error banner")
     public void testInvalidLogin() {
         var invalidUser = UserFactory.invalidRandomUser();
-        loginPage.login(invalidUser.username(), invalidUser.password());
-        assertTrue(loginPage.getErrorMessage().contains("Username and password do not match"),
-                "Error message should indicate invalid credentials");
+        loginPage.loginAs(invalidUser.username(), invalidUser.password());
+
+        assertTrue(loginPage.isErrorDisplayed(), "Error banner should be visible");
+        assertTrue(loginPage.getErrorMessage().contains("Username and password do not match"));
     }
 }
